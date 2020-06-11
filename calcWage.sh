@@ -2,15 +2,21 @@
 
 echo "Welcome another wage dir!!"
 
-read -p "Enter Worked Days " day
+read -p "Enter Total Wage " wage
 
 function getWorkedHours(){
-	echo " : $@ "
-	for ((i=1;i<=$@;i++))
-		do
-			hours=$[ 8 * $i ]
-	done
-	echo "Total hours is : $hours "
+		totalWage=$@
+		wagePerHour=$[(1*totalWage)/20]
+		
+		#echo $wagePerHour
+		Onehr=$[(1*totalWage)/wagePerHour]
+		echo "Wage Per Hours !! "
+		echo $Onehr
+		DailyWage=$[Onehr*8]
+		echo "Wage Per Day !! "
+		echo $DailyWage
+		#echo $wagePerHour
+		#echo $totalWage
 
 }
-getWorkedHours $day
+getWorkedHours $wage
