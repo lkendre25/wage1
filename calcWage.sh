@@ -2,31 +2,15 @@
 
 echo "Welcome another wage dir!!"
 
-read -p "Enter worked days either Half day and full day " day
+read -p "Enter Worked Days " day
 
-perHour=20
+function getWorkedHours(){
+	echo " : $@ "
+	for ((i=1;i<=$@;i++))
+		do
+			hours=$[ 8 * $i ]
+	done
+	echo "Total hours is : $hours "
 
-
-if [ $(( day )) -gt 4 ]
-then
-	echo " Salary Per Hours"
-
-	case $day in
-	[5-8])
-
-	   for i in {5..8}
-   	do
-      	SalaryForOneDay=$[ $i * $perHour ]
-      	#echo $SalaryForOneDay
-   	done
-			echo $SalaryForOneDay
-   	;;
-
-	*)
-   		echo "60 fix amount"
-
-	esac
-else
-	echo "Loss Of Pay!! "
-fi
-
+}
+getWorkedHours $day
